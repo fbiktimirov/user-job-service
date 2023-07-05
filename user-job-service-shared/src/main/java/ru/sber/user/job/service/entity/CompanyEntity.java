@@ -1,15 +1,12 @@
 package ru.sber.user.job.service.entity;
 
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
 import lombok.Getter;
 import lombok.Setter;
 
+import javax.persistence.*;
 import java.util.Objects;
 
+@Table(name = "company")
 @Entity
 @Getter
 @Setter
@@ -42,5 +39,17 @@ public class CompanyEntity {
     @Override
     public int hashCode() {
         return Objects.hash(id);
+    }
+
+    @Override
+    public String toString() {
+        return "CompanyEntity{" +
+                "id=" + id +
+                ", companyName='" + companyName + '\'' +
+                ", description='" + description + '\'' +
+                ", created='" + created + '\'' +
+                ", updated='" + updated + '\'' +
+                ", isActivity=" + isActivity +
+                '}';
     }
 }

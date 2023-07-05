@@ -1,15 +1,13 @@
 package ru.sber.user.job.service.entity;
 
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import javax.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
 
 import java.time.LocalDateTime;
+import java.util.Objects;
 
+@Table(name = "user_job_info")
 @Entity
 @Getter
 @Setter
@@ -20,16 +18,16 @@ public class UserJobInfoEntity {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
 
-    @Column(name = "company")
+    @ManyToOne
     private CompanyEntity company;
 
-    @Column(name = "users")
+    @ManyToOne
     private UsersEntity users;
 
     @Column(name = "description")
     private String description;
 
-    @Column(name = "isActivity")
+    @Column(name = "is_activity")
     private boolean isActivity;
 
     @Column(name = "created")
@@ -37,4 +35,30 @@ public class UserJobInfoEntity {
 
     @Column(name = "updated")
     private LocalDateTime updated;
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        UserJobInfoEntity that = (UserJobInfoEntity) o;
+        return id.equals(that.id);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(id);
+    }
+
+    @Override
+    public String toString() {
+        return "UserJobInfoEntity{" +
+                "id=" + id +
+                ", company=" + company +
+                ", users=" + users +
+                ", description='" + description + '\'' +
+                ", isActivity=" + isActivity +
+                ", created=" + created +
+                ", updated=" + updated +
+                '}';
+    }
 }

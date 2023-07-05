@@ -1,11 +1,11 @@
 package ru.sber.user.job.service.entity;
 
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
-import jakarta.persistence.Table;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.Table;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -63,6 +63,23 @@ public class UsersEntity {
     @Override
     public int hashCode() {
         return Objects.hash(id);
+    }
+
+    @Override
+    public String toString() {
+        return "UsersEntity{" +
+                "id=" + id +
+                ", familyName='" + familyName + '\'' +
+                ", middleName='" + middleName + '\'' +
+                ", firstName='" + firstName + '\'' +
+                ", birthday='" + birthday + '\'' +
+                ", gender='" + gender + '\'' +
+                ", age=" + age +
+                ", description='" + description + '\'' +
+                ", created=" + created +
+                ", updated=" + updated +
+                ", isBlocked=" + isBlocked +
+                '}';
     }
 }
 

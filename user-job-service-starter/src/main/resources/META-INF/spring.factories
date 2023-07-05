@@ -1,2 +1,2 @@
 org.springframework.boot.autoconfigure.EnableAutoConfiguration=\
-  ru.beeline.rich.archetype.rich.archetype.configuration.StarterAutoConfiguration
+  ru.sber.user.job.service.configuration.StarterAutoConfiguration
